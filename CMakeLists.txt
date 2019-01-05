@@ -1,3 +1,14 @@
+cmake_minimum_required(VERSION 3.5)
+project(fc)
+
+add_compile_options(-std=c++14)
+
+
+
+list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/CMakeModules")
+include(GNUInstallDirs)
+include(SetupTargetMacros)
+
 # Setup module path to make visible used CMake extensions
 #INCLUDE(GetPrerequisites)
 #INCLUDE(VersionMacros)
@@ -16,7 +27,10 @@ endif()
 
 SET (ORIGINAL_LIB_SUFFIXES ${CMAKE_FIND_LIBRARY_SUFFIXES})
 
-add_subdirectory( secp256k1 )
+set(Boost_USE_STATIC_LIBS ON)
+find_package(Boost 1.67 REQUIRED COMPONENTS date_time filesystem system chrono unit_test_framework)
+
+#add_subdirectory( secp256k1 )
 
 IF( ECC_IMPL STREQUAL openssl )
   SET( ECC_REST src/crypto/elliptic_impl_pub.cpp )
