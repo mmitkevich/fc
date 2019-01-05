@@ -7,16 +7,16 @@ class fcConan(ConanFile):
     license = "<Put the package license here>"
     author = "<Put your name here> <And your email here>"
     url = "<Package recipe repository url here, for issues about the package>"
-    description = "<Description of Utxx here>"
-    topics = ("<Put some tag here>", "<here>", "<and here>")
+    description = "<Description of EOS-FC here>"
+    topics = ("fc", "boost", "eos")
     settings = "os", "compiler", "build_type", "arch"
     options = {"shared": [True, False]}
     default_options = "shared=False"
     generators = "cmake"
 
     def source(self):
-        self.run("git clone https://github.com/eosio/fc.git")
-
+        self.run("git clone https://github.com/mmitkevich/fc.git")
+        self.run("cd fc && git submodule init && git submodule update")
     def build(self):
         cmake = CMake(self)
         cmake.definitions["TOOLCHAIN"] = "clang" 
