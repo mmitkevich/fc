@@ -15,14 +15,13 @@ class fcConan(ConanFile):
     generators = "cmake"
 
     def source(self):
-        self.run("git clone https://github.com/mmitkevich/fc.git")
-        self.run("cd fc && git submodule init && git submodule update")
+        self.run("git clone  --recurse-submodules https://github.com/mmitkevich/fc.git")
 
     def build(self):
         cmake = CMake(self)
         cmake.definitions["TOOLCHAIN"] = "clang" 
         cmake.definitions["CMAKE_MODULE_PATH"] = "CMakeModules"
-        cmake.configure(source_folder="fc")
+        cmake.configure(source_folder="fc", args="-- -j")
         cmake.build()
 
         #Explicit way:
