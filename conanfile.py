@@ -1,5 +1,5 @@
 from conans import ConanFile, CMake, tools
-
+import os
 
 class fcConan(ConanFile):
     name = "eos-fc"
