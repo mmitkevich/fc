@@ -42,7 +42,7 @@ set (CMAKE_CONFIGURATION_TYPES "Release;RelWithDebInfo;Debug" CACHE STRING "Conf
 
 # Include our cmake macros
 set (CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
-include (CMakeHelpers)
+include (CMakeHelpers.cmake)
 
 ############ Paths
 

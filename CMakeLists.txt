@@ -30,6 +30,7 @@ SET (ORIGINAL_LIB_SUFFIXES ${CMAKE_FIND_LIBRARY_SUFFIXES})
 set(Boost_USE_STATIC_LIBS ON)
 find_package(Boost 1.67 REQUIRED COMPONENTS date_time filesystem system chrono unit_test_framework)
 
+#add_subdirectory("vendor/websocketpp")
 #add_subdirectory( secp256k1 )
 
 IF( ECC_IMPL STREQUAL openssl )

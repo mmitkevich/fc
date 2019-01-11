@@ -3,7 +3,7 @@ from conans import ConanFile, CMake, tools
 
 class fcConan(ConanFile):
     name = "eos-fc"
-    version = "e5ad1ad"
+    version = "master"
     license = "<Put the package license here>"
     author = "<Put your name here> <And your email here>"
     url = "<Package recipe repository url here, for issues about the package>"
@@ -17,12 +17,12 @@ class fcConan(ConanFile):
     def source(self):
         self.run("git clone -b eosio https://github.com/mmitkevich/fc.git")
         self.run("cd fc && git submodule init && git submodule update")
+
     def build(self):
         cmake = CMake(self)
         cmake.definitions["TOOLCHAIN"] = "clang" 
         cmake.definitions["CMAKE_MODULE_PATH"] = "CMakeModules"
-	cmake.configure(source_folder="fc")
-        self.run('git submodule init && git submodule update')
+        cmake.configure(source_folder="fc")
         cmake.build()
 
         #Explicit way:
