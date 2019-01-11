@@ -15,7 +15,7 @@ class fcConan(ConanFile):
     generators = "cmake"
 
     def source(self):
-        self.run("git clone -b eosio https://github.com/mmitkevich/fc.git")
+        self.run("git clone https://github.com/mmitkevich/fc.git")
         self.run("cd fc && git submodule init && git submodule update")
 
     def build(self):
