@@ -4,10 +4,10 @@ from conans import ConanFile, CMake, tools
 class fcConan(ConanFile):
     name = "eos-fc"
     version = "master"
-    license = "<Put the package license here>"
-    author = "<Put your name here> <And your email here>"
-    url = "<Package recipe repository url here, for issues about the package>"
-    description = "<Description of EOS-FC here>"
+    license = "MIT"
+    author = ""
+    url = "git@github.com:mmitkevich/fc.git"
+    description = ""
     topics = ("fc", "boost", "eos")
     settings = "os", "compiler", "build_type", "arch"
     options = {"shared": [True, False]}
@@ -43,3 +43,4 @@ class fcConan(ConanFile):
 
     def requirements(self):
         self.requires("boost/1.67.0@conan/stable")
+        self.requires("OpenSSL/1.0.2o@conan/stable")

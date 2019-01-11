@@ -3,9 +3,11 @@ project(fc)
 
 add_compile_options(-std=c++14)
 
-
-
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/CMakeModules")
+
+include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
+conan_basic_setup()
+
 include(GNUInstallDirs)
 include(SetupTargetMacros)
 
